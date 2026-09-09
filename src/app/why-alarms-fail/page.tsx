@@ -137,7 +137,7 @@ export default function WhyAlarmsFailPage() {
           Want to know where your home stands?
         </h2>
         <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-          <Link href="/contact" className="btn btn-primary">
+          <Link href="/support?new" className="btn btn-primary">
             Schedule a free evaluation
           </Link>
           <Link href="/network" className="btn btn-outline">

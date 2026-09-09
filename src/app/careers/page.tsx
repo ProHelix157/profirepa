@@ -26,7 +26,7 @@ export default function CareersPage() {
           <a href={site.phoneHref}>{site.phone}</a> or send a note through our contact page.
         </p>
         <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-          <Link href="/contact" className="btn btn-primary">
+          <Link href="/support?new" className="btn btn-primary">
             Get in touch
           </Link>
         </div>

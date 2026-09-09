@@ -116,7 +116,7 @@ export default function NetworkPage() {
           floor plan, and leave you a 180-piece emergency preparedness kit — free, no obligation.
         </p>
         <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-          <Link href="/contact" className="btn btn-primary">
+          <Link href="/support?new" className="btn btn-primary">
             Schedule a free evaluation
           </Link>
           <a href={site.phoneHref} className="btn btn-outline">

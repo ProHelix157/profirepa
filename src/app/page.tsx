@@ -8,22 +8,22 @@ const pillars = [
   {
     n: "01",
     title: "Fire",
-    img: "/device-smoke.jpg",
-    alt: "Wireless smoke sensor",
+    img: "/threat-fire.jpg",
+    alt: "A pan fire flaring on a stovetop",
     body: "Smoke and heat sensors in every room, including the ones a hallway alarm never hears. When one sensor sees smoke, every sensor sounds, and the network names the room.",
   },
   {
     n: "02",
     title: "Flood",
-    img: "/device-water.jpg",
-    alt: "Wireless water sensor",
+    img: "/threat-flood.jpg",
+    alt: "Water leaking from a failed pipe",
     body: "Water sensors under the water heater, behind the washer, beside the sump. A failed hose becomes a text message in the first minute, not a claim in the third week.",
   },
   {
     n: "03",
     title: "Freeze",
-    img: "/device-water-puck.jpg",
-    alt: "Wireless leak and freeze sensor",
+    img: "/threat-freeze.jpg",
+    alt: "A pipe joint covered in frost",
     body: "Freeze sensors watch the crawlspace and the cabin you only visit on weekends. A Pennsylvania January does not give your pipes a second chance.",
   },
 ];
@@ -80,7 +80,7 @@ export default async function Home() {
     <>
       {/* Hero — full-bleed */}
       <section className={`section ${styles.hero}`}>
-        <Image src="/hero-home.jpg" alt="" fill priority style={{ objectFit: "cover" }} />
+        <Image src="/hero-aerial.jpg" alt="" fill priority style={{ objectFit: "cover" }} />
         <div className={styles.heroScrim} />
         <div className={styles.heroContent}>
           <div className={styles.heroCopy}>
@@ -99,7 +99,7 @@ export default async function Home() {
               exactly where.
             </p>
             <div className={styles.heroActions}>
-              <Link href="/contact" className="btn btn-primary">
+              <Link href="/support?new" className="btn btn-primary">
                 Schedule a free in-home evaluation
               </Link>
               <Link href="/network" className="btn btn-outline">
@@ -121,8 +121,8 @@ export default async function Home() {
               <span>Every room + 8 contacts</span>
             </div>
             <div>
-              <span>Monthly fee</span>
-              <span>$0. Ever.</span>
+              <span>Monitoring fee</span>
+              <span>$0 a month, forever</span>
             </div>
           </div>
         </div>
@@ -297,7 +297,7 @@ export default async function Home() {
             what you learn.
           </p>
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-            <Link href="/contact" className="btn btn-ink">
+            <Link href="/support?new" className="btn btn-ink">
               Schedule a free evaluation
             </Link>
             <a href={site.phoneHref} className="btn btn-outline-ink">

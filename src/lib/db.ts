@@ -18,6 +18,10 @@ export type Ticket = {
   name: string;
   phone: string;
   email: string | null;
+  address: string;
+  serial_number: string;
+  security_key: string;
+  attachments: string[];
   category: string;
   urgency: string;
   message: string;
@@ -46,4 +50,8 @@ export async function ensureSchema() {
       updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
     )
   `;
+  await sql`ALTER TABLE tickets ADD COLUMN IF NOT EXISTS address TEXT NOT NULL DEFAULT ''`;
+  await sql`ALTER TABLE tickets ADD COLUMN IF NOT EXISTS serial_number TEXT NOT NULL DEFAULT ''`;
+  await sql`ALTER TABLE tickets ADD COLUMN IF NOT EXISTS security_key TEXT NOT NULL DEFAULT ''`;
+  await sql`ALTER TABLE tickets ADD COLUMN IF NOT EXISTS attachments JSONB NOT NULL DEFAULT '[]'`;
 }

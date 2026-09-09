@@ -79,7 +79,7 @@ export default function FaqPage() {
       <section className="wrap" style={{ paddingTop: 64, paddingBottom: 88, display: "flex", flexDirection: "column", gap: 24 }}>
         <h2 style={{ fontSize: 40, letterSpacing: "-0.02em" }}>Get answers for your own home.</h2>
         <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-          <Link href="/contact" className="btn btn-primary">
+          <Link href="/support?new" className="btn btn-primary">
             Schedule a free consultation
           </Link>
           <a href={site.phoneHref} className="btn btn-outline">

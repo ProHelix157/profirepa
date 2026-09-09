@@ -131,7 +131,23 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
                 </>
               )}
             </div>
+            {(t.address || t.serial_number || t.security_key) && (
+              <div style={{ fontSize: 14, color: "var(--n400)", display: "flex", gap: 18, flexWrap: "wrap" }}>
+                {t.address && <span>📍 {t.address}</span>}
+                {t.serial_number && <span>S/N: {t.serial_number}</span>}
+                {t.security_key && <span>Key: {t.security_key}</span>}
+              </div>
+            )}
             <p style={{ fontSize: 15, lineHeight: 1.6, color: "var(--n300)", whiteSpace: "pre-wrap" }}>{t.message}</p>
+            {t.attachments.length > 0 && (
+              <div style={{ display: "flex", gap: 12, flexWrap: "wrap", fontSize: 14 }}>
+                {t.attachments.map((url, i) => (
+                  <a key={url} href={url} target="_blank" rel="noopener noreferrer">
+                    Attachment {i + 1} ↗
+                  </a>
+                ))}
+              </div>
+            )}
             <form action={updateTicketAction} style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "flex-end", borderTop: "1px solid var(--divider-soft)", paddingTop: 14 }}>
               <input type="hidden" name="id" value={t.id} />
               <div className="field" style={{ minWidth: 180 }}>

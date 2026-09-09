@@ -24,13 +24,13 @@ export function Footer() {
           <Link href="/about">About Us</Link>
           <Link href="/careers">Careers</Link>
           <Link href="/faq">FAQ</Link>
-          <Link href="/contact">Contact Us</Link>
+          <Link href="/support?new">Contact Us</Link>
         </div>
         <div className="col">
           <div className="col-label">Products</div>
           <Link href="/network">{site.networkName}</Link>
           <Link href="/accessories">Accessories</Link>
-          <Link href="/contact">Free Evaluation</Link>
+          <Link href="/support?new">Free Evaluation</Link>
         </div>
         <div className="col">
           <div className="col-label">Support</div>
