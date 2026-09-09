@@ -58,7 +58,7 @@ export async function sendTicketEmails(ticket: Ticket) {
           ? `Thanks for requesting a free in-home evaluation. Your reference number is ${ticket.ticket_number}. We'll call you shortly to set up a time.`
           : `Thanks for reaching out to Pro Fire Safety support. Your ticket number is ${ticket.ticket_number}. We'll get back to you within one business day.`,
         ``,
-        `If this is urgent, call us at ${site.phone}. For an active emergency, call 911.`,
+        `For an active fire or emergency, call 911. For anything else urgent, call us at ${site.phone}.`,
         ``,
         `— Pro Fire Safety`,
         `${site.address[0]}, ${site.address[1]}`,
