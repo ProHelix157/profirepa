@@ -93,9 +93,10 @@ export default async function Home() {
               Because it is one.
             </h1>
             <p className={styles.heroLede}>
-              A wireless network of smoke, heat, carbon monoxide, flood and freeze sensors in every
-              room, engineered on Texas Instruments hardware and installed by certified Safety
-              Advisors. It tells you what is wrong, and exactly where.
+              You&apos;ve already protected your home from the threats outside. The ones that start
+              inside — fire, carbon monoxide, water, freeze — move faster and take more lives. The{" "}
+              {site.networkName} puts a sensor in every room that tells you what&apos;s wrong, and
+              exactly where.
             </p>
             <div className={styles.heroActions}>
               <Link href="/contact" className="btn btn-primary">
