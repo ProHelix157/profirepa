@@ -78,7 +78,7 @@ export default function NetworkPage() {
       </div>
 
       <section className="section wrap split-grid" style={{ paddingTop: 72, paddingBottom: 72 }}>
-        <PhoneDemo maxWidth={250} />
+        <PhoneDemo maxWidth={280} />
         <div style={{ display: "flex", flexDirection: "column", gap: 18, alignSelf: "center" }}>
           <div className="kicker">The {site.appName}</div>
           <h2 style={{ fontSize: 36, letterSpacing: "-0.02em", lineHeight: 1.1 }}>Every room, in your pocket.</h2>
