@@ -76,6 +76,31 @@ export default function NetworkPage() {
         </p>
       </div>
 
+      <section className="section wrap split-grid" style={{ paddingTop: 72, paddingBottom: 72 }}>
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/app-demo-poster.jpg"
+          style={{ width: "100%", maxWidth: 340, height: "auto", border: "2px solid var(--divider)", display: "block" }}
+          aria-label={`The ${site.appName} scrolling through every sensor in the home, room by room`}
+        >
+          <source src="/app-demo.webm" type="video/webm" />
+          <source src="/app-demo.mp4" type="video/mp4" />
+        </video>
+        <div style={{ display: "flex", flexDirection: "column", gap: 18, alignSelf: "center" }}>
+          <div className="kicker">The {site.appName}</div>
+          <h2 style={{ fontSize: 36, letterSpacing: "-0.02em", lineHeight: 1.1 }}>Every room, in your pocket.</h2>
+          <p style={{ fontSize: 16, lineHeight: 1.65, color: "var(--n400)", maxWidth: "54ch" }}>
+            See your home&apos;s safety in real time, room by room. Instant texts and emails tell you
+            — and up to 8 contacts — exactly which room has a fire, a water leak, a freeze problem,
+            or carbon monoxide. The PEEK feature lets you check in from anywhere, any time. iOS and
+            Android.
+          </p>
+        </div>
+      </section>
+
       <section className="section wrap" style={{ paddingTop: 72, paddingBottom: 72, display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: 28 }}>
         {devices.map((d) => (
           <div key={d.name} style={{ background: "var(--surface)", border: "1px solid var(--divider-soft)", padding: 28, display: "flex", flexDirection: "column", gap: 16 }}>
@@ -105,31 +130,6 @@ export default function NetworkPage() {
             ))}
           </tbody>
         </table>
-      </section>
-
-      <section className="section wrap split-grid" style={{ paddingTop: 72, paddingBottom: 72 }}>
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster="/app-demo-poster.jpg"
-          style={{ width: "100%", maxWidth: 340, height: "auto", border: "2px solid var(--divider)", display: "block" }}
-          aria-label={`The ${site.appName} scrolling through every sensor in the home, room by room`}
-        >
-          <source src="/app-demo.webm" type="video/webm" />
-          <source src="/app-demo.mp4" type="video/mp4" />
-        </video>
-        <div style={{ display: "flex", flexDirection: "column", gap: 18, alignSelf: "center" }}>
-          <div className="kicker">The {site.appName}</div>
-          <h2 style={{ fontSize: 36, letterSpacing: "-0.02em", lineHeight: 1.1 }}>Every room, in your pocket.</h2>
-          <p style={{ fontSize: 16, lineHeight: 1.65, color: "var(--n400)", maxWidth: "54ch" }}>
-            See your home&apos;s safety in real time, room by room. Instant texts and emails tell you
-            — and up to 8 contacts — exactly which room has a fire, a water leak, a freeze problem,
-            or carbon monoxide. The PEEK feature lets you check in from anywhere, any time. iOS and
-            Android.
-          </p>
-        </div>
       </section>
 
       <section className="wrap" style={{ paddingTop: 72, paddingBottom: 88, display: "flex", flexDirection: "column", gap: 24 }}>
