@@ -12,7 +12,7 @@ export function PhoneDemo({ maxWidth = 300 }: { maxWidth?: number }) {
         height: "auto",
         display: "block",
         margin: "0 auto",
-        border: "2px solid var(--divider)",
+        filter: "drop-shadow(0 20px 44px rgba(0,0,0,0.6))",
       }}
       aria-label="The Pro Fire App scrolling through every sensor in the home, room by room"
     >

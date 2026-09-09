@@ -12,25 +12,25 @@ export const metadata: Metadata = {
 
 const devices = [
   {
-    img: "/device-smoke.jpg",
+    img: "/device-smoke.png",
     name: "Smoke Sensor",
     body: "Infrared optics scan the chamber every 4 seconds, plus dual thermal sensing — catching both slow smoldering and fast flaming fires with fewer false alarms. The chamber lifts out and cleans, and the system tells you when it needs it. A sealed box-store alarm that gets dirty just quietly stops working.",
     specs: ["360° cleanable smoke chamber", "Heat backup built in", "One-touch silence", "100 dB horn"],
   },
   {
-    img: "/device-heat.jpg",
+    img: "/device-heat.png",
     name: "Heat Sensor",
     body: "For the kitchen, garage, attic and laundry room — where a smoke alarm would nuisance-trip and most homes have no protection at all. Rate-of-rise detection plus three programmable fixed temperatures.",
     specs: ["Rate-of-rise + fixed temp", "117° / 135° / 175° settings", "Covers the rooms alarms can't"],
   },
   {
-    img: "/device-co.jpg",
+    img: "/device-co.png",
     name: "Carbon Monoxide Sensor",
     body: "Most alarms are built around a single high trigger point. Ours responds at three concentrations, at the fast end of every UL 2034 window — and the app warns you of low-level CO the standard requires alarms not to sound at.",
     specs: ["Responds at 3 CO levels", "App alert at 30–50 ppm sustained", "Alerts every room, not one"],
   },
   {
-    img: "/device-water.jpg",
+    img: "/device-water.png",
     name: "Water Sensor",
     body: "At every water connection in the house: water heater, washer, sump, bathrooms. A failed hose becomes a text message in the first minute.",
     specs: ["Leak detection at the source", "Freeze detection built in"],
