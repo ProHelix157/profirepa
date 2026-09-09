@@ -42,7 +42,12 @@ export function Footer() {
         <span>
           © {new Date().getFullYear()} Pro Fire Safety · {site.tagline}
         </span>
-        <span>Mill Hall, Pennsylvania</span>
+        <span>
+          Mill Hall, Pennsylvania ·{" "}
+          <Link href="/admin" style={{ color: "inherit" }}>
+            Admin
+          </Link>
+        </span>
       </div>
     </footer>
   );
