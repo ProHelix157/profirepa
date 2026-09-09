@@ -105,9 +105,22 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
         {tickets.map((t) => (
           <div key={t.id} style={{ background: "var(--surface)", border: "1px solid var(--divider-soft)", borderLeft: `4px solid ${statusColors[t.status] ?? "var(--n500)"}`, padding: 24, display: "flex", flexDirection: "column", gap: 12 }}>
             <div style={{ display: "flex", justifyContent: "space-between", gap: 16, flexWrap: "wrap", alignItems: "baseline" }}>
-              <div style={{ fontFamily: "var(--font-heading)", fontWeight: 800, fontSize: 18 }}>
+              <div style={{ fontFamily: "var(--font-heading)", fontWeight: 800, fontSize: 18, display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
                 {t.ticket_number}
-                <span style={{ fontWeight: 400, fontSize: 14, color: "var(--n400)", marginLeft: 12 }}>
+                <span
+                  style={{
+                    fontSize: 11,
+                    fontWeight: 800,
+                    letterSpacing: "0.08em",
+                    textTransform: "uppercase",
+                    padding: "4px 10px",
+                    background: statusColors[t.status] ?? "var(--n500)",
+                    color: "var(--ink)",
+                  }}
+                >
+                  {statuses.find(([v]) => v === t.status)?.[1] ?? t.status}
+                </span>
+                <span style={{ fontWeight: 400, fontSize: 14, color: "var(--n400)" }}>
                   {t.kind === "consultation" ? "Consultation request" : t.category || "Support"}
                   {t.urgency !== "normal" && (
                     <strong style={{ color: "var(--accent)", marginLeft: 8, textTransform: "uppercase", fontSize: 12, letterSpacing: "0.06em" }}>
@@ -148,7 +161,7 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
                 ))}
               </div>
             )}
-            <form action={updateTicketAction} style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "flex-end", borderTop: "1px solid var(--divider-soft)", paddingTop: 14 }}>
+            <form key={`${t.status}-${t.notes ?? ""}`} action={updateTicketAction} style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "flex-end", borderTop: "1px solid var(--divider-soft)", paddingTop: 14 }}>
               <input type="hidden" name="id" value={t.id} />
               <div className="field" style={{ minWidth: 180 }}>
                 <label htmlFor={`status-${t.id}`}>Status</label>
