@@ -47,7 +47,7 @@ export default function AboutPage() {
       <section className="wrap" style={{ paddingTop: 64, paddingBottom: 88, display: "flex", flexDirection: "column", gap: 24 }}>
         <h2 style={{ fontSize: 40, letterSpacing: "-0.02em" }}>Meet us at your front door.</h2>
         <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-          <Link href="/support?new" className="btn btn-primary">
+          <Link href="/contact" className="btn btn-primary">
             Schedule a free evaluation
           </Link>
           <a href={site.phoneHref} className="btn btn-outline">

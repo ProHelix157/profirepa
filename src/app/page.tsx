@@ -99,7 +99,7 @@ export default async function Home() {
               exactly where.
             </p>
             <div className={styles.heroActions}>
-              <Link href="/support?new" className="btn btn-primary">
+              <Link href="/contact" className="btn btn-primary">
                 Schedule a free in-home evaluation
               </Link>
               <Link href="/network" className="btn btn-outline">
@@ -297,7 +297,7 @@ export default async function Home() {
             what you learn.
           </p>
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-            <Link href="/support?new" className="btn btn-ink">
+            <Link href="/contact" className="btn btn-ink">
               Schedule a free evaluation
             </Link>
             <a href={site.phoneHref} className="btn btn-outline-ink">

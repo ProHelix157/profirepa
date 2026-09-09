@@ -79,7 +79,7 @@ export default function AccessoriesPage() {
           Not sure what your home needs? That&apos;s the point of the walk-through.
         </h2>
         <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-          <Link href="/support?new" className="btn btn-primary">
+          <Link href="/contact" className="btn btn-primary">
             Schedule a free evaluation
           </Link>
           <a href={site.phoneHref} className="btn btn-outline">

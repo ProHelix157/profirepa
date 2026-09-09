@@ -1,30 +1,27 @@
 import type { Metadata } from "next";
-import { SupportTabs } from "@/components/SupportTabs";
+import { TicketForm } from "@/components/TicketForm";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Contact & Support",
+  title: "Submit a Ticket",
   description:
-    "Request a free in-home evaluation, or open a support ticket with Pro Fire Safety — sensor questions, app setup, batteries, warranty.",
+    "Open a support ticket with Pro Fire Safety — sensor questions, app setup, batteries, warranty.",
 };
 
-export default async function SupportPage({ searchParams }: { searchParams: Promise<{ new?: string }> }) {
-  const params = await searchParams;
-  const initial = params.new !== undefined ? "consultation" : "support";
+export default function SupportPage() {
   return (
     <>
       <div className="page-hero">
-        <div className="kicker">Contact &amp; support</div>
-        <h1>How can we help?</h1>
+        <div className="kicker">Customer support</div>
+        <h1>Need a hand? Open a ticket.</h1>
         <p>
-          New here? Request a free in-home evaluation — no obligation, and you keep the 180-piece
-          emergency preparedness kit. Already protected? Open a ticket and we&apos;ll get back to
-          you within one business day.
+          A chirping sensor, an app question, a battery, a move — tell us what&apos;s going on and
+          we&apos;ll get back to you within one business day.
         </p>
       </div>
 
       <section className="wrap" style={{ paddingTop: 56, paddingBottom: 88, display: "grid", gridTemplateColumns: "minmax(280px, 4fr) minmax(320px, 8fr)", gap: 56, alignItems: "start" }}>
-        <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
           <div style={{ background: "var(--accent)", color: "var(--ink)", padding: "18px 22px" }}>
             <div style={{ fontWeight: 800, fontSize: 16, fontFamily: "var(--font-heading)" }}>Active fire or emergency? Call 911.</div>
             <div style={{ fontSize: 14, marginTop: 4 }}>Get your family out first. Everything else can wait.</div>
@@ -40,23 +37,15 @@ export default async function SupportPage({ searchParams }: { searchParams: Prom
               </div>
             </div>
           </div>
-          <div>
-            <div className="kicker" style={{ marginBottom: 10 }}>Visit</div>
-            <p style={{ fontSize: 15, lineHeight: 1.7, color: "var(--n400)" }}>
-              {site.address[0]}
-              <br />
-              {site.address[1]}
-            </p>
-          </div>
-          <div>
-            <div className="kicker" style={{ marginBottom: 10 }}>Service area</div>
-            <p style={{ fontSize: 15, lineHeight: 1.65, color: "var(--n400)" }}>
-              {site.serviceArea} — Lock Haven, State College, Williamsport, Bellefonte, and
-              everywhere in between.
-            </p>
-          </div>
+          <p style={{ fontSize: 15, lineHeight: 1.65, color: "var(--n400)" }}>
+            Every ticket gets a number the moment you submit — mention it if you call so we can pick
+            up right where you left off.
+          </p>
+          <p style={{ fontSize: 15, lineHeight: 1.65, color: "var(--n400)" }}>
+            Not a customer yet? <a href="/contact">Request a free in-home evaluation</a> instead.
+          </p>
         </div>
-        <SupportTabs initial={initial} />
+        <TicketForm kind="support" />
       </section>
     </>
   );
