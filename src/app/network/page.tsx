@@ -58,6 +58,8 @@ const specs = [
   ["App", `${site.appName} — iOS and Android`],
   ["Alert contacts", "Up to 8, by text and email"],
   ["Whole-house install", "About 2 hours"],
+  ["Product warranty", "Lifetime replacement guarantee (prorated)"],
+  ["Fire warranty", "Damaged in a fire? We replace it free."],
 ];
 
 export default function NetworkPage() {
