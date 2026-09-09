@@ -136,7 +136,7 @@ export default async function Home() {
               <span className={styles.dot} />
               {p.n}
             </div>
-            <Image src={p.img} alt={p.alt} width={640} height={640} style={{ width: "100%", aspectRatio: "1", objectFit: "cover" }} />
+            <Image src={p.img} alt={p.alt} width={640} height={640} style={{ width: "100%", height: "auto", aspectRatio: "1", objectFit: "cover" }} />
             <h3 style={{ fontSize: 36, letterSpacing: "-0.015em", marginTop: 8 }}>{p.title}</h3>
             <p style={{ fontSize: 16, color: "var(--n400)" }}>{p.body}</p>
           </div>

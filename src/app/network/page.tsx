@@ -79,7 +79,7 @@ export default function NetworkPage() {
       <section className="section wrap" style={{ paddingTop: 72, paddingBottom: 72, display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: 28 }}>
         {devices.map((d) => (
           <div key={d.name} style={{ background: "var(--surface)", border: "1px solid var(--divider-soft)", padding: 28, display: "flex", flexDirection: "column", gap: 16 }}>
-            <Image src={d.img} alt={d.name} width={480} height={480} style={{ width: "100%", maxWidth: 220, aspectRatio: "1", objectFit: "cover", alignSelf: "flex-start" }} />
+            <Image src={d.img} alt={d.name} width={480} height={480} style={{ width: "100%", maxWidth: 220, height: "auto", aspectRatio: "1", objectFit: "cover", alignSelf: "flex-start" }} />
             <h3 style={{ fontSize: 24 }}>{d.name}</h3>
             <p style={{ fontSize: 15, lineHeight: 1.6, color: "var(--n400)" }}>{d.body}</p>
             <ul style={{ margin: 0, paddingLeft: 18, fontSize: 14, color: "var(--n300)", display: "flex", flexDirection: "column", gap: 6 }}>

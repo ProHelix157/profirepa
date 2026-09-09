@@ -67,7 +67,7 @@ export default function AccessoriesPage() {
       <section className="section wrap" style={{ paddingTop: 64, paddingBottom: 72, display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 28 }}>
         {accessories.map((a) => (
           <div key={a.name} style={{ background: "var(--surface)", border: "1px solid var(--divider-soft)", padding: 24, display: "flex", flexDirection: "column", gap: 14 }}>
-            <Image src={a.img} alt={a.name} width={600} height={600} style={{ width: "100%", aspectRatio: "1", objectFit: "cover", background: "#fff" }} />
+            <Image src={a.img} alt={a.name} width={600} height={600} style={{ width: "100%", height: "auto", aspectRatio: "1", objectFit: "cover", background: "#fff" }} />
             <h3 style={{ fontSize: 21 }}>{a.name}</h3>
             <p style={{ fontSize: 15, lineHeight: 1.6, color: "var(--n400)" }}>{a.body}</p>
           </div>
