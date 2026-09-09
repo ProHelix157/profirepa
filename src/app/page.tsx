@@ -96,10 +96,10 @@ export default async function Home() {
               Because it is one.
             </h1>
             <p className={styles.heroLede}>
-              You&apos;ve already protected your home from the threats outside. The ones that start
-              inside — fire, carbon monoxide, water, freeze — move faster and take more lives. The{" "}
-              {site.networkName} puts a sensor in every room that tells you what&apos;s wrong, and
-              exactly where.
+              You&apos;ve already protected your home from the threats outside. But what about the
+              ones that start inside? Fire, carbon monoxide, water, freeze — they move faster and
+              take more lives. The {site.networkName} puts a sensor in every room that tells you
+              what&apos;s wrong, and exactly where.
             </p>
             <div className={styles.heroActions}>
               <Link href="/contact" className="btn btn-primary">
