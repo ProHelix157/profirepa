@@ -22,7 +22,6 @@ export function Footer() {
         <div className="col">
           <div className="col-label">Company</div>
           <Link href="/about">About Us</Link>
-          <Link href="/careers">Careers</Link>
           <Link href="/faq">FAQ</Link>
           <Link href="/support?new">Contact Us</Link>
         </div>
