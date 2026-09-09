@@ -60,6 +60,16 @@ a:hover { color: var(--accent-600); }
 ::selection { background: rgba(247, 148, 29, 0.35); }
 
 /* — layout primitives — */
+.shell {
+  max-width: 1520px;
+  margin: 0 auto;
+  border-left: 2px solid var(--divider);
+  border-right: 2px solid var(--divider);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.shell main { flex: 1; }
 .wrap { padding-left: 72px; padding-right: 72px; }
 .section { border-bottom: 2px solid var(--divider); }
 .kicker {
@@ -180,6 +190,10 @@ select.input { appearance: none; }
 /* — prose (privacy, careers etc.) — */
 .prose { max-width: 72ch; display: flex; flex-direction: column; gap: 18px; font-size: 16px; line-height: 1.7; color: var(--n300); }
 .prose h2 { font-size: 26px; color: var(--text); margin-top: 16px; }
+
+@media (max-width: 1524px) {
+  .shell { border-left: none; border-right: none; }
+}
 
 @media (max-width: 900px) {
   .wrap, .site-nav, .site-footer, .page-hero { padding-left: 24px; padding-right: 24px; }

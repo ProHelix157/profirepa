@@ -38,9 +38,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" className={archivo.variable}>
       <body>
-        <Nav />
-        <main>{children}</main>
-        <Footer />
+        <div className="shell">
+          <Nav />
+          <main>{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
