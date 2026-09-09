@@ -1,8 +1,8 @@
 export const site = {
   name: "Pro Fire Safety",
   tagline: "Fire · Flood · Freeze",
-  phone: "814-280-3155",
-  phoneHref: "tel:8142803155",
+  phone: "570-326-3473",
+  phoneHref: "tel:5703263473",
   address: ["7133 Nittany Valley Dr", "Mill Hall, PA 17751"],
   serviceArea: "Serving homes within two hours of Mill Hall, PA",
   networkName: "Pro Fire Network",
