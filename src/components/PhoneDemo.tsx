@@ -1,6 +1,4 @@
-export function PhoneDemo({ maxWidth = 260 }: { maxWidth?: number }) {
-  // The video contains the real phone; its background is keyed to the page color,
-  // so no frame or clipping is needed — just a shadow to lift it off the page.
+export function PhoneDemo({ maxWidth = 300 }: { maxWidth?: number }) {
   return (
     <video
       autoPlay
@@ -14,7 +12,7 @@ export function PhoneDemo({ maxWidth = 260 }: { maxWidth?: number }) {
         height: "auto",
         display: "block",
         margin: "0 auto",
-        filter: "drop-shadow(0 24px 48px rgba(0,0,0,0.6))",
+        border: "2px solid var(--divider)",
       }}
       aria-label="The Pro Fire App scrolling through every sensor in the home, room by room"
     >
