@@ -42,7 +42,7 @@ const devices = [
     specs: ["520 Hz low-frequency alarm", "Mattress shaker", "Whole network at arm's reach"],
   },
   {
-    img: "/device-commlink.jpg",
+    img: "/device-commlink.png",
     name: "Comm Link",
     body: `One per system — the bridge that connects your network to the ${site.appName}, so up to 8 contacts get texts and emails the moment anything trips.`,
     specs: ["Real-time text + email alerts", "Up to 8 contacts", "PEEK in from anywhere"],
