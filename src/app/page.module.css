@@ -29,7 +29,13 @@
 }
 .heroLede { font-size: 19px; line-height: 1.6; max-width: 54ch; color: var(--n300); }
 .heroActions { display: flex; gap: 12px; flex-wrap: wrap; }
-.heroSpecs { border-top: 2px solid var(--divider); }
+.heroSpecs {
+  border-top: 2px solid var(--divider);
+  background: rgba(18, 17, 16, 0.78);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 0 24px;
+}
 .heroSpecs > div {
   padding: 18px 0;
   border-bottom: 1px solid var(--divider);
