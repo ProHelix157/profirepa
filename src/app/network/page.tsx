@@ -108,7 +108,18 @@ export default function NetworkPage() {
       </section>
 
       <section className="section wrap split-grid" style={{ paddingTop: 72, paddingBottom: 72 }}>
-        <Image src="/app-phone.jpg" alt={`The ${site.appName} showing every sensor in the home, room by room`} width={1100} height={1650} style={{ width: "100%", maxWidth: 340, height: "auto", border: "2px solid var(--divider)" }} />
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/app-demo-poster.jpg"
+          style={{ width: "100%", maxWidth: 340, height: "auto", border: "2px solid var(--divider)", display: "block" }}
+          aria-label={`The ${site.appName} scrolling through every sensor in the home, room by room`}
+        >
+          <source src="/app-demo.webm" type="video/webm" />
+          <source src="/app-demo.mp4" type="video/mp4" />
+        </video>
         <div style={{ display: "flex", flexDirection: "column", gap: 18, alignSelf: "center" }}>
           <div className="kicker">The {site.appName}</div>
           <h2 style={{ fontSize: 36, letterSpacing: "-0.02em", lineHeight: 1.1 }}>Every room, in your pocket.</h2>
