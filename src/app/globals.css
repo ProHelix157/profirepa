@@ -187,6 +187,17 @@ select.input { appearance: none; }
 .page-hero h1 { font-size: clamp(40px, 5vw, 64px); letter-spacing: -0.025em; margin-left: -0.04em; }
 .page-hero p { font-size: 18px; line-height: 1.65; color: var(--n400); max-width: 78ch; }
 
+/* — sidebar + form split (contact, support) — */
+.split-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 4fr) minmax(320px, 8fr);
+  gap: 56px;
+  align-items: start;
+}
+@media (max-width: 960px) {
+  .split-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+}
+
 /* — prose (privacy, careers etc.) — */
 .prose { max-width: 72ch; display: flex; flex-direction: column; gap: 18px; font-size: 16px; line-height: 1.7; color: var(--n300); }
 .prose h2 { font-size: 26px; color: var(--text); margin-top: 16px; }

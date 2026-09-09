@@ -20,7 +20,7 @@ export default function ContactPage() {
         </p>
       </div>
 
-      <section className="wrap" style={{ paddingTop: 56, paddingBottom: 88, display: "grid", gridTemplateColumns: "minmax(280px, 4fr) minmax(320px, 8fr)", gap: 56, alignItems: "start" }}>
+      <section className="wrap split-grid" style={{ paddingTop: 56, paddingBottom: 88 }}>
         <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
           <div>
             <div className="kicker" style={{ marginBottom: 10 }}>Call or visit</div>
