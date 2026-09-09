@@ -236,6 +236,26 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Reviews */}
+      <section className="section wrap" style={{ paddingTop: 80, paddingBottom: 80, display: "flex", flexDirection: "column", gap: 20 }}>
+        <div className="kicker">From our customers</div>
+        <div style={{ display: "flex", alignItems: "baseline", gap: 20, flexWrap: "wrap" }}>
+          <span style={{ fontFamily: "var(--font-heading)", fontWeight: 800, fontSize: "clamp(56px, 6vw, 88px)", lineHeight: 1, letterSpacing: "-0.03em" }}>
+            4.9<span style={{ color: "var(--accent)" }}>★</span>
+          </span>
+          <span style={{ fontSize: 18, color: "var(--n400)" }}>on Google</span>
+        </div>
+        <a
+          href="https://maps.app.goo.gl/uRV38CchWzfrGri36"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-outline"
+          style={{ alignSelf: "flex-start" }}
+        >
+          Read our reviews on Google
+        </a>
+      </section>
+
       {/* Close */}
       <section className={styles.close}>
         <div className={styles.closeCta}>
