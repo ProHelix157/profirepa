@@ -107,6 +107,20 @@ export default function NetworkPage() {
         </table>
       </section>
 
+      <section className="section wrap split-grid" style={{ paddingTop: 72, paddingBottom: 72 }}>
+        <Image src="/app-phone.jpg" alt={`The ${site.appName} showing every sensor in the home, room by room`} width={1100} height={1650} style={{ width: "100%", maxWidth: 340, height: "auto", border: "2px solid var(--divider)" }} />
+        <div style={{ display: "flex", flexDirection: "column", gap: 18, alignSelf: "center" }}>
+          <div className="kicker">The {site.appName}</div>
+          <h2 style={{ fontSize: 36, letterSpacing: "-0.02em", lineHeight: 1.1 }}>Every room, in your pocket.</h2>
+          <p style={{ fontSize: 16, lineHeight: 1.65, color: "var(--n400)", maxWidth: "54ch" }}>
+            See your home&apos;s safety in real time, room by room. Instant texts and emails tell you
+            — and up to 8 contacts — exactly which room has a fire, a water leak, a freeze problem,
+            or carbon monoxide. The PEEK feature lets you check in from anywhere, any time. iOS and
+            Android.
+          </p>
+        </div>
+      </section>
+
       <section className="wrap" style={{ paddingTop: 72, paddingBottom: 88, display: "flex", flexDirection: "column", gap: 24 }}>
         <h2 style={{ fontSize: 40, letterSpacing: "-0.02em", maxWidth: "24ch" }}>
           See it in your own home.

@@ -150,7 +150,7 @@ export default async function Home() {
         </div>
         <h2 className={styles.networkTitle}>Danger in one room. Alerts in every room.</h2>
         <div className={styles.networkGrid}>
-          <Image src="/network-app.jpg" alt={`${site.appName} alerting eight contacts that smoke was detected in the living room`} width={1200} height={588} style={{ width: "100%", height: "auto", border: "2px solid var(--divider)" }} />
+          <Image src="/system-lineup.jpg" alt={`The complete ${site.networkName}: smoke, heat, and carbon monoxide sensors, Comm Link, Bedside Control Center with mattress shaker, and water sensor`} width={1400} height={832} style={{ width: "100%", height: "auto", border: "2px solid var(--divider)" }} />
           <div className={styles.featureList}>
             {networkFeatures.map((f) => (
               <div key={f.title} className={styles.feature}>
