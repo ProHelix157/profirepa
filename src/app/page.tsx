@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/lib/site";
+import { getReviews } from "@/lib/reviews";
 import styles from "./page.module.css";
 
 const pillars = [
@@ -73,7 +74,8 @@ const steps = [
   },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const reviewData = await getReviews();
   return (
     <>
       {/* Hero — full-bleed */}
@@ -198,6 +200,18 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Statement */}
+      <section className="section wrap" style={{ paddingTop: 120, paddingBottom: 120 }}>
+        <h2 style={{ fontSize: "clamp(40px, 4.8vw, 68px)", lineHeight: 1.05, letterSpacing: "-0.025em", maxWidth: "22ch", marginLeft: "-0.04em" }}>
+          You&apos;re not buying alarms. You&apos;re putting a safety net around the people under your roof.
+        </h2>
+        <p style={{ fontSize: 18, lineHeight: 1.6, color: "var(--n400)", maxWidth: "58ch", marginTop: 28 }}>
+          Families invest in the {site.networkName} the way they invest in a security system,
+          because that&apos;s what it is — designed for your floor plan, installed by a certified
+          Safety Advisor, backed for life, and watching every room while you sleep.
+        </p>
+      </section>
+
       {/* Mission + why */}
       <section className={`section ${styles.mission}`}>
         <div>
@@ -236,24 +250,39 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Reviews */}
-      <section className="section wrap" style={{ paddingTop: 80, paddingBottom: 80, display: "flex", flexDirection: "column", gap: 20 }}>
-        <div className="kicker">From our customers</div>
-        <div style={{ display: "flex", alignItems: "baseline", gap: 20, flexWrap: "wrap" }}>
-          <span style={{ fontFamily: "var(--font-heading)", fontWeight: 800, fontSize: "clamp(56px, 6vw, 88px)", lineHeight: 1, letterSpacing: "-0.03em" }}>
-            4.9<span style={{ color: "var(--accent)" }}>★</span>
-          </span>
-          <span style={{ fontSize: 18, color: "var(--n400)" }}>on Google</span>
+      {/* Reviews — pulled live from Google, refreshed daily */}
+      <section className="section wrap" style={{ paddingTop: 80, paddingBottom: 80, display: "flex", flexDirection: "column", gap: 40 }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: 24, flexWrap: "wrap" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+            <div className="kicker">From our Google reviews</div>
+            <div style={{ display: "flex", alignItems: "baseline", gap: 18, flexWrap: "wrap" }}>
+              <span style={{ fontFamily: "var(--font-heading)", fontWeight: 800, fontSize: "clamp(56px, 6vw, 88px)", lineHeight: 1, letterSpacing: "-0.03em" }}>
+                {reviewData.rating}<span style={{ color: "var(--accent)" }}>★</span>
+              </span>
+              <span style={{ fontSize: 18, color: "var(--n400)" }}>{reviewData.count} reviews on Google</span>
+            </div>
+          </div>
+          <a href={reviewData.mapsUri} target="_blank" rel="noopener noreferrer" className="btn btn-outline">
+            Read all reviews on Google
+          </a>
         </div>
-        <a
-          href="https://maps.app.goo.gl/uRV38CchWzfrGri36"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn btn-outline"
-          style={{ alignSelf: "flex-start" }}
-        >
-          Read our reviews on Google
-        </a>
+        {reviewData.reviews.length > 0 && (
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 40 }}>
+            {reviewData.reviews.slice(0, 3).map((r) => (
+              <figure key={r.author + r.when} style={{ margin: 0, borderTop: "2px solid var(--text)", paddingTop: 22, display: "flex", flexDirection: "column", gap: 16 }}>
+                <div style={{ color: "var(--accent)", fontSize: 15, letterSpacing: 2 }} aria-label={`${r.rating} out of 5 stars`}>
+                  {"★".repeat(Math.round(r.rating))}
+                </div>
+                <blockquote style={{ margin: 0, fontSize: 16, lineHeight: 1.6, color: "var(--n300)" }}>
+                  &ldquo;{r.text.length > 260 ? r.text.slice(0, 260).trimEnd() + "…" : r.text}&rdquo;
+                </blockquote>
+                <figcaption style={{ fontSize: 14, color: "var(--n500)" }}>
+                  — {r.author} · {r.when}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        )}
       </section>
 
       {/* Close */}
