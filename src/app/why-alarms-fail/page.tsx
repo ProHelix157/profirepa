@@ -13,11 +13,12 @@ export default function WhyAlarmsFailPage() {
     <>
       <div className="page-hero">
         <div className="kicker">The research</div>
-        <h1>Most homes have alarms. That&apos;s not the same as being protected.</h1>
+        <h1>The fire most likely to kill you is the one that never catches.</h1>
         <p>
-          Most home fire deaths happen in homes that had alarms — alarms that did not sound, were
-          not heard, or were in the wrong room. The numbers below are from published research and
-          the UL standard itself. They are the reason the {site.networkName} exists.
+          A cigarette in upholstery, a failing outlet, wiring in a wall — these smolder for hours,
+          and the two common kinds of smoke alarm are not equally good at finding them. The numbers
+          below are from published research and the UL standard itself. They are the reason the{" "}
+          {site.networkName} exists.
         </p>
       </div>
 
@@ -54,9 +55,79 @@ export default function WhyAlarmsFailPage() {
             </tr>
           </tbody>
         </table>
-        <p style={{ fontSize: 13, color: "var(--n500)", marginTop: 12 }}>
-          Source: Grosse, DeJong &amp; Murphy, Texas A&amp;M University, Figure 8. Probability of
-          fatality due to detector failing to warn while the room of origin remained tenable.
+        <p style={{ fontSize: 16, lineHeight: 1.65, color: "var(--n300)", marginTop: 32, maxWidth: "70ch" }}>
+          Underwriters Laboratories tested the cheaper sensing type against smoldering fires in
+          synthetic materials — mattress foam, nylon carpet, the things actually in a modern house.
+          It failed to go off <strong>at all</strong> in 91% of those tests. Not late. Not at all.
+          The American Society of Home Inspectors does not hedge: its position is that homeowners
+          should replace ionization alarms with photoelectric ones.
+        </p>
+        <p style={{ fontSize: 13, color: "var(--n500)", marginTop: 16 }}>
+          Sources: Grosse, DeJong &amp; Murphy, Texas A&amp;M University, Figure 8 — probability of
+          fatality due to detector failing to warn while the room of origin remained tenable ·
+          Underwriters Laboratories, Smoke Characterization Project, for the Fire Protection
+          Research Foundation · American Society of Home Inspectors position statement.
+        </p>
+      </section>
+
+      <section className="section wrap" style={{ paddingTop: 80, paddingBottom: 80 }}>
+        <div className="kicker" style={{ marginBottom: 20 }}>
+          Not just any photoelectric
+        </div>
+        <h2 style={{ fontSize: 40, letterSpacing: "-0.02em", maxWidth: "28ch", marginBottom: 24 }}>
+          A hardware-store photoelectric is a real improvement. Ours goes further.
+        </h2>
+        <p style={{ fontSize: 16, lineHeight: 1.65, color: "var(--n400)", maxWidth: "70ch", marginBottom: 40 }}>
+          To be fair about it: a photoelectric alarm from the hardware store beats what&apos;s in
+          most homes. But its lens spends ten years collecting dust, cooking film and dirt — and it
+          never tells you. That is how alarms quietly stop working. Here is what separates ours from
+          every other photoelectric on the shelf:
+        </p>
+        <table className="table" style={{ maxWidth: 880 }}>
+          <thead>
+            <tr>
+              <th style={{ width: "28%" }}></th>
+              <th style={{ width: "36%" }}>Typical box-store alarm</th>
+              <th style={{ width: "36%", color: "var(--accent)" }}>{site.networkName}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style={{ fontWeight: 600 }}>When the sensor gets dirty</td>
+              <td style={{ color: "var(--n400)" }}>No warning, no access</td>
+              <td>It warns you; the chamber lifts out and cleans</td>
+            </tr>
+            <tr>
+              <td style={{ fontWeight: 600 }}>As the sensor ages</td>
+              <td style={{ color: "var(--n400)" }}>Drifts silently</td>
+              <td>Corrects itself, tells you when it needs help</td>
+            </tr>
+            <tr>
+              <td style={{ fontWeight: 600 }}>Fast flaming fires</td>
+              <td style={{ color: "var(--n400)" }}>Optical only</td>
+              <td>Heat sensing built into every smoke sensor</td>
+            </tr>
+            <tr>
+              <td style={{ fontWeight: 600 }}>Whole-house interconnect</td>
+              <td style={{ color: "var(--n400)" }}>Wired models, or a few app-based</td>
+              <td>Wireless, 200 ft, no wiring — and the alert names the room</td>
+            </tr>
+            <tr>
+              <td style={{ fontWeight: 600 }}>If it fails in ten years</td>
+              <td style={{ color: "var(--n400)" }}>You buy another one</td>
+              <td>Lifetime replacement guarantee</td>
+            </tr>
+            <tr>
+              <td style={{ fontWeight: 600 }}>When you move</td>
+              <td style={{ color: "var(--n400)" }}>Stays on the ceiling</td>
+              <td>Two screws, no wiring — it comes with you</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style={{ fontSize: 16, lineHeight: 1.65, color: "var(--n300)", marginTop: 32, maxWidth: "70ch" }}>
+          That last row matters more than people think: renters and future movers are buying{" "}
+          <strong>protection for their family</strong>, not an upgrade to a landlord&apos;s ceiling.
+          Unscrew it and it goes to the next house.
         </p>
       </section>
 
@@ -101,8 +172,28 @@ export default function WhyAlarmsFailPage() {
         <p style={{ fontSize: 15, color: "var(--n300)", marginTop: 16, maxWidth: "70ch" }}>
           Plus: the {site.appName} warns you at 30–50 ppm after 8 hours of continuous detection — a
           low, sustained level the standard requires alarms <em>not</em> to sound at, but one you
-          still deserve to know about.
+          still deserve to know about. Three alarm points — 70, 150 and 400 ppm — mean you know
+          whether to open a window or get everyone out.
         </p>
+        <p style={{ fontSize: 15, lineHeight: 1.65, color: "var(--n400)", marginTop: 24, maxWidth: "70ch" }}>
+          One more thing about cheap CO alarms: the sensor inside doesn&apos;t only detect carbon
+          monoxide. It also reacts to alcohols and products that contain them — hairspray, aerosols,
+          cleaning sprays, plug-in air fresheners. The danger is not the false alarm; it&apos;s what
+          the false alarm <em>teaches</em> you. An alarm that sounds when nothing is wrong teaches a
+          family to doubt it — and the next time, the instinct is to go looking for the candle
+          instead of getting everyone out. An alarm that cries wolf is one you stop believing.
+        </p>
+      </section>
+
+      <section className="section wrap" style={{ paddingTop: 72, paddingBottom: 72 }}>
+        <div style={{ background: "var(--surface)", borderLeft: "4px solid var(--accent)", padding: "40px 48px", maxWidth: 880 }}>
+          <div className="kicker" style={{ marginBottom: 16 }}>Fifty-five years</div>
+          <p style={{ fontSize: 22, lineHeight: 1.5, fontStyle: "italic", color: "var(--n300)" }}>
+            Since 1971, home fires and carbon monoxide have killed and injured an estimated 2
+            million people. Our manufacturer has never been informed of a loss of life due to a
+            failure of its products.
+          </p>
+        </div>
       </section>
 
       <section className="section wrap" style={{ paddingTop: 80, paddingBottom: 80, display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 48 }}>

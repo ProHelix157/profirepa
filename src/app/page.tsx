@@ -53,6 +53,8 @@ const comparison = [
   ["Who it tells", "Whoever is home and awake", "Whole house + 8 contacts"],
   ["What it says", "Something, somewhere", "Which hazard, which room"],
   ["Battery", "Yearly 9V, chirps at 3 a.m.", "10-year sealed LiMn"],
+  ["When it gets dirty", "Quietly stops working", "Warns you; chamber lifts out"],
+  ["If it fails in ten years", "You buy another one", "Lifetime replacement guarantee"],
   ["Installed by", "You and a ladder", "Certified Safety Advisor"],
 ];
 
