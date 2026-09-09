@@ -153,12 +153,19 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
             )}
             <p style={{ fontSize: 15, lineHeight: 1.6, color: "var(--n300)", whiteSpace: "pre-wrap" }}>{t.message}</p>
             {t.attachments.length > 0 && (
-              <div style={{ display: "flex", gap: 12, flexWrap: "wrap", fontSize: 14 }}>
-                {t.attachments.map((url, i) => (
-                  <a key={url} href={url} target="_blank" rel="noopener noreferrer">
-                    Attachment {i + 1} ↗
-                  </a>
-                ))}
+              <div style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "flex-start" }}>
+                {t.attachments.map((url, i) => {
+                  const isVideo = /\.(mp4|mov|webm|m4v|avi)(\?|$)/i.test(url);
+                  return isVideo ? (
+                    // eslint-disable-next-line jsx-a11y/media-has-caption
+                    <video key={url} src={url} controls preload="metadata" style={{ maxHeight: 220, maxWidth: 320, background: "#000", border: "1px solid var(--divider-soft)" }} />
+                  ) : (
+                    <a key={url} href={url} target="_blank" rel="noopener noreferrer" title={`Attachment ${i + 1} — click for full size`}>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={url} alt={`Attachment ${i + 1}`} style={{ maxHeight: 160, maxWidth: 240, objectFit: "cover", border: "1px solid var(--divider-soft)", display: "block" }} />
+                    </a>
+                  );
+                })}
               </div>
             )}
             <form key={`${t.status}-${t.notes ?? ""}`} action={updateTicketAction} style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "flex-end", borderTop: "1px solid var(--divider-soft)", paddingTop: 14 }}>
