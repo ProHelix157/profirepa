@@ -80,11 +80,11 @@
   gap: 64px;
   align-items: start;
 }
-.lineupWrap { position: relative; padding-right: 140px; display: flex; align-items: flex-end; min-height: 320px; }
-.phoneOverlay { position: absolute; right: 0; bottom: 0; width: 150px; }
+.lineupWrap { display: flex; align-items: center; gap: 24px; }
+.phoneSlot { flex: 0 0 150px; }
 @media (max-width: 1000px) {
-  .lineupWrap { padding-right: 0; display: block; min-height: 0; }
-  .phoneOverlay { position: static; width: 150px; margin: 20px auto 0; }
+  .lineupWrap { flex-direction: column; }
+  .phoneSlot { flex: none; width: 150px; }
 }
 
 .featureList { display: grid; }
