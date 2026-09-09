@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { PhoneDemo } from "@/components/PhoneDemo";
 import Link from "next/link";
 import { site } from "@/lib/site";
 
@@ -77,17 +78,7 @@ export default function NetworkPage() {
       </div>
 
       <section className="section wrap split-grid" style={{ paddingTop: 72, paddingBottom: 72 }}>
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster="/app-demo-poster.jpg"
-          style={{ width: "100%", maxWidth: 240, height: "auto", borderRadius: "11%/5.4%", display: "block", boxShadow: "0 24px 60px rgba(0,0,0,0.55)", margin: "0 auto" }}
-          aria-label={`The ${site.appName} scrolling through every sensor in the home, room by room`}
-        >
-          <source src="/app-demo.mp4" type="video/mp4" />
-        </video>
+        <PhoneDemo maxWidth={250} />
         <div style={{ display: "flex", flexDirection: "column", gap: 18, alignSelf: "center" }}>
           <div className="kicker">The {site.appName}</div>
           <h2 style={{ fontSize: 36, letterSpacing: "-0.02em", lineHeight: 1.1 }}>Every room, in your pocket.</h2>

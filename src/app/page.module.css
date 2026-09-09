@@ -80,6 +80,12 @@
   gap: 64px;
   align-items: start;
 }
+.lineupWrap { position: relative; }
+.phoneOverlay { position: absolute; right: 8px; bottom: -32px; width: 160px; }
+@media (max-width: 1000px) {
+  .phoneOverlay { position: static; width: 150px; margin: 20px auto 0; }
+}
+
 .featureList { display: grid; }
 .feature { padding: 24px 0; border-bottom: 1px solid var(--divider); }
 .feature:first-child { padding-top: 0; }

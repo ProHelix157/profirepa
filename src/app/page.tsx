@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/lib/site";
 import { getReviews } from "@/lib/reviews";
+import { PhoneDemo } from "@/components/PhoneDemo";
 import styles from "./page.module.css";
 
 const pillars = [
@@ -152,7 +153,12 @@ export default async function Home() {
         </div>
         <h2 className={styles.networkTitle}>Danger in one room. Alerts in every room.</h2>
         <div className={styles.networkGrid}>
-          <Image src="/system-lineup.jpg" alt={`The complete ${site.networkName}: smoke, heat, and carbon monoxide sensors, Comm Link, Bedside Control Center with mattress shaker, and water sensor`} width={1400} height={832} style={{ width: "100%", height: "auto", border: "2px solid var(--divider)" }} />
+          <div className={styles.lineupWrap}>
+            <Image src="/system-lineup.jpg" alt={`The complete ${site.networkName}: smoke, heat, and carbon monoxide sensors, Comm Link, Bedside Control Center with mattress shaker, and water sensor`} width={1400} height={832} style={{ width: "100%", height: "auto", border: "2px solid var(--divider)" }} />
+            <div className={styles.phoneOverlay}>
+              <PhoneDemo maxWidth={160} />
+            </div>
+          </div>
           <div className={styles.featureList}>
             {networkFeatures.map((f) => (
               <div key={f.title} className={styles.feature}>
