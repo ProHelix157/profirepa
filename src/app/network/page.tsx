@@ -83,10 +83,9 @@ export default function NetworkPage() {
           loop
           playsInline
           poster="/app-demo-poster.jpg"
-          style={{ width: "100%", maxWidth: 340, height: "auto", border: "2px solid var(--divider)", display: "block" }}
+          style={{ width: "100%", maxWidth: 320, height: "auto", borderRadius: "11%/5.4%", display: "block", boxShadow: "0 24px 60px rgba(0,0,0,0.55)" }}
           aria-label={`The ${site.appName} scrolling through every sensor in the home, room by room`}
         >
-          <source src="/app-demo.webm" type="video/webm" />
           <source src="/app-demo.mp4" type="video/mp4" />
         </video>
         <div style={{ display: "flex", flexDirection: "column", gap: 18, alignSelf: "center" }}>
