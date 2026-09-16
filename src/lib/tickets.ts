@@ -14,6 +14,9 @@ export type NewTicket = {
   phone: string;
   email?: string;
   address?: string;
+  city?: string;
+  state?: string;
+  zip?: string;
   serialNumber?: string;
   securityKey?: string;
   attachments?: string[];
@@ -29,9 +32,10 @@ export async function createTicket(input: NewTicket): Promise<Ticket> {
     const ticketNumber = generateTicketNumber();
     try {
       const rows = await sql`
-        INSERT INTO tickets (ticket_number, kind, name, phone, email, address, serial_number, security_key, attachments, category, urgency, message)
+        INSERT INTO tickets (ticket_number, kind, name, phone, email, address, city, state, zip, serial_number, security_key, attachments, category, urgency, message)
         VALUES (${ticketNumber}, ${input.kind}, ${input.name}, ${input.phone}, ${input.email ?? null},
-                ${input.address ?? ""}, ${input.serialNumber ?? ""}, ${input.securityKey ?? ""},
+                ${input.address ?? ""}, ${input.city ?? ""}, ${input.state ?? ""}, ${input.zip ?? ""},
+                ${input.serialNumber ?? ""}, ${input.securityKey ?? ""},
                 ${JSON.stringify(input.attachments ?? [])}, ${input.category ?? ""}, ${input.urgency ?? "normal"}, ${input.message})
         RETURNING *
       `;
