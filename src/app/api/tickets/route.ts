@@ -4,6 +4,16 @@ import { createTicket } from "@/lib/tickets";
 import { sendTicketEmails } from "@/lib/email";
 
 const MAX_FILES = 4;
+
+// Validated against a list rather than a length check, so "Pa", "penn" and "XX" are all refused
+// and the stored value is always a real two-letter code. DC and PR included: the service area is
+// PA, but a ticket can come from anywhere and silently rejecting a valid state is worse than
+// storing one we do not serve.
+const US_STATES = new Set([
+  "AL","AK","AZ","AR","CA","CO","CT","DE","DC","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA",
+  "ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR",
+  "PA","PR","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY",
+]);
 const MAX_FILE_BYTES = 25 * 1024 * 1024;
 const ALLOWED_TYPES = /^(image|video)\//;
 
@@ -21,6 +31,9 @@ export async function POST(req: Request) {
   const phone = field("phone", 40);
   const email = field("email", 320);
   const address = field("address");
+  const city = field("city", 120);
+  const state = field("state", 2).toUpperCase();
+  const zip = field("zip", 10);
   const serialNumber = field("serialNumber", 100);
   const securityKey = field("securityKey", 100);
   const message = String(form.get("message") ?? "").trim().slice(0, 5000);
@@ -31,6 +44,19 @@ export async function POST(req: Request) {
   if (!name) return NextResponse.json({ error: "Please give us your name." }, { status: 400 });
   if (!phone) return NextResponse.json({ error: "Please give us a phone number." }, { status: 400 });
   if (!message) return NextResponse.json({ error: "Please tell us what's going on." }, { status: 400 });
+  // Enforced server-side as well as in the form. The browser `required` attribute is a
+  // convenience — anything can POST this endpoint directly, and an address without a town is
+  // the reason this validation exists (ticket PFS-260916-2579). Support tickets need a
+  // dispatchable address; a consultation request does not, so there it is validated only if given.
+  if (kind === "support") {
+    if (!address) return NextResponse.json({ error: "Please give us the street address." }, { status: 400 });
+    if (!city) return NextResponse.json({ error: "Please give us the city or town." }, { status: 400 });
+    if (!US_STATES.has(state)) {
+      return NextResponse.json({ error: "Please choose a state." }, { status: 400 });
+    }
+  } else if (state && !US_STATES.has(state)) {
+    return NextResponse.json({ error: "Please choose a state." }, { status: 400 });
+  }
   if (email && !email.includes("@")) {
     return NextResponse.json({ error: "That email doesn't look right." }, { status: 400 });
   }
@@ -68,6 +94,9 @@ export async function POST(req: Request) {
       phone,
       email: email || undefined,
       address,
+      city,
+      state,
+      zip,
       serialNumber,
       securityKey,
       attachments,

@@ -33,6 +33,7 @@ export async function sendTicketEmails(ticket: Ticket) {
       `Phone:    ${ticket.phone}`,
       `Email:    ${ticket.email ?? "—"}`,
       `Address:  ${ticket.address || "—"}`,
+      `          ${[ticket.city, ticket.state].filter(Boolean).join(", ")}${ticket.zip ? " " + ticket.zip : ""}`.trimEnd(),
       `Serial:   ${ticket.serial_number || "—"}`,
       `Sec key:  ${ticket.security_key || "—"}`,
       `Category: ${ticket.category || "—"}`,

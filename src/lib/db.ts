@@ -19,6 +19,9 @@ export type Ticket = {
   phone: string;
   email: string | null;
   address: string;
+  city: string;
+  state: string;
+  zip: string;
   serial_number: string;
   security_key: string;
   attachments: string[];
@@ -51,6 +54,13 @@ export async function ensureSchema() {
     )
   `;
   await sql`ALTER TABLE tickets ADD COLUMN IF NOT EXISTS address TEXT NOT NULL DEFAULT ''`;
+  // Split out 2026-09-16. `address` was one free-text box placeheld "Street, town, ZIP", so
+  // people typed just the street — ticket PFS-260916-2579 arrived as "526 Merceron street" with
+  // no town, which is not enough to send a tech to. Existing rows keep whatever they have in
+  // `address`; these are additive and default empty so nothing breaks.
+  await sql`ALTER TABLE tickets ADD COLUMN IF NOT EXISTS city TEXT NOT NULL DEFAULT ''`;
+  await sql`ALTER TABLE tickets ADD COLUMN IF NOT EXISTS state TEXT NOT NULL DEFAULT ''`;
+  await sql`ALTER TABLE tickets ADD COLUMN IF NOT EXISTS zip TEXT NOT NULL DEFAULT ''`;
   await sql`ALTER TABLE tickets ADD COLUMN IF NOT EXISTS serial_number TEXT NOT NULL DEFAULT ''`;
   await sql`ALTER TABLE tickets ADD COLUMN IF NOT EXISTS security_key TEXT NOT NULL DEFAULT ''`;
   await sql`ALTER TABLE tickets ADD COLUMN IF NOT EXISTS attachments JSONB NOT NULL DEFAULT '[]'`;

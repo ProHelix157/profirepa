@@ -20,11 +20,18 @@ const urgencies = [
 const MAX_FILES = 4;
 const MAX_FILE_MB = 25;
 
+const US_STATES = [
+  "PA","AL","AK","AZ","AR","CA","CO","CT","DE","DC","FL","GA","HI","ID","IL","IN","IA","KS","KY",
+  "LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK",
+  "OR","PR","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY",
+];
+
 export function TicketForm({ kind }: { kind: "support" | "consultation" }) {
   const [state, setState] = useState<"idle" | "sending" | "done">("idle");
   const [error, setError] = useState<string | null>(null);
   const [ticketNumber, setTicketNumber] = useState<string | null>(null);
   const [fileNote, setFileNote] = useState<string | null>(null);
+  const isSupport = kind === "support";
 
   function onFilesChange(e: React.ChangeEvent<HTMLInputElement>) {
     const files = Array.from(e.target.files ?? []);
@@ -87,9 +94,35 @@ export function TicketForm({ kind }: { kind: "support" | "consultation" }) {
           <input id={`${kind}-phone`} name="phone" type="tel" className="input" required maxLength={40} autoComplete="tel" />
         </div>
       </div>
+      {/* Was one free-text box placeheld "Street, town, ZIP", so people reasonably typed just the
+          street — PFS-260916-2579 came in as "526 Merceron street" with no town, which is not
+          enough to dispatch to. Separate fields make the town impossible to skip.
+          Required on support tickets only: a consultation request is the first contact with a new
+          lead, and three mandatory address fields there costs submissions. We still ask. */}
       <div className="field">
-        <label htmlFor={`${kind}-address`}>Address</label>
-        <input id={`${kind}-address`} name="address" className="input" required maxLength={300} autoComplete="street-address" placeholder="Street, town, ZIP" />
+        <label htmlFor={`${kind}-address`}>Street address{isSupport ? "" : " (optional)"}</label>
+        <input id={`${kind}-address`} name="address" className="input" required={isSupport} maxLength={300} autoComplete="address-line1" placeholder="526 Merceron Street" />
+      </div>
+      <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr)", gap: 18 }}>
+        <div className="field">
+          <label htmlFor={`${kind}-city`}>City / town{isSupport ? "" : " (optional)"}</label>
+          <input id={`${kind}-city`} name="city" className="input" required={isSupport} maxLength={120} autoComplete="address-level2" />
+        </div>
+        <div className="field">
+          <label htmlFor={`${kind}-state`}>State</label>
+          {/* A select, not a text box: it makes "Pa", "penn" and a typo impossible, so what lands
+              in the ticket is always a real two-letter code. Defaults to PA — nearly every
+              customer is, and it saves the rest a scroll. */}
+          <select id={`${kind}-state`} name="state" className="input" required defaultValue="PA" autoComplete="address-level1">
+            {US_STATES.map((code) => (
+              <option key={code} value={code}>{code}</option>
+            ))}
+          </select>
+        </div>
+        <div className="field">
+          <label htmlFor={`${kind}-zip`}>ZIP</label>
+          <input id={`${kind}-zip`} name="zip" className="input" maxLength={10} inputMode="numeric" pattern="[0-9]{5}(-[0-9]{4})?" autoComplete="postal-code" placeholder="17701" />
+        </div>
       </div>
       <div className="field">
         <label htmlFor={`${kind}-email`}>Email (for your ticket confirmation)</label>

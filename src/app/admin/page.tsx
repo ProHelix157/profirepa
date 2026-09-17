@@ -18,6 +18,11 @@ const statuses = [
   ["done", "Done"],
 ] as const;
 
+const formatAddress = (t: { address: string; city: string; state: string; zip: string }) => {
+  const locality = [[t.city, t.state].filter(Boolean).join(", "), t.zip].filter(Boolean).join(" ");
+  return [t.address, locality].filter(Boolean).join(", ");
+};
+
 const statusColors: Record<string, string> = {
   new: "var(--accent)",
   in_progress: "#4ea8de",
@@ -144,9 +149,18 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
                 </>
               )}
             </div>
-            {(t.address || t.serial_number || t.security_key) && (
+            {(formatAddress(t) || t.serial_number || t.security_key) && (
               <div style={{ fontSize: 14, color: "var(--n400)", display: "flex", gap: 18, flexWrap: "wrap" }}>
-                {t.address && <span>📍 {t.address}</span>}
+                {formatAddress(t) && (
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(formatAddress(t))}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: "inherit" }}
+                  >
+                    📍 {formatAddress(t)}
+                  </a>
+                )}
                 {t.serial_number && <span>S/N: {t.serial_number}</span>}
                 {t.security_key && <span>Key: {t.security_key}</span>}
               </div>
