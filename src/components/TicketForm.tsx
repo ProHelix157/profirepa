@@ -31,6 +31,7 @@ export function TicketForm({ kind }: { kind: "support" | "consultation" }) {
   const [error, setError] = useState<string | null>(null);
   const [ticketNumber, setTicketNumber] = useState<string | null>(null);
   const [fileNote, setFileNote] = useState<string | null>(null);
+  const isSupport = kind === "support";
 
   function onFilesChange(e: React.ChangeEvent<HTMLInputElement>) {
     const files = Array.from(e.target.files ?? []);
@@ -95,15 +96,17 @@ export function TicketForm({ kind }: { kind: "support" | "consultation" }) {
       </div>
       {/* Was one free-text box placeheld "Street, town, ZIP", so people reasonably typed just the
           street — PFS-260916-2579 came in as "526 Merceron street" with no town, which is not
-          enough to dispatch to. Separate fields make the town impossible to skip. */}
+          enough to dispatch to. Separate fields make the town impossible to skip.
+          Required on support tickets only: a consultation request is the first contact with a new
+          lead, and three mandatory address fields there costs submissions. We still ask. */}
       <div className="field">
-        <label htmlFor={`${kind}-address`}>Street address</label>
-        <input id={`${kind}-address`} name="address" className="input" required maxLength={300} autoComplete="address-line1" placeholder="526 Merceron Street" />
+        <label htmlFor={`${kind}-address`}>Street address{isSupport ? "" : " (optional)"}</label>
+        <input id={`${kind}-address`} name="address" className="input" required={isSupport} maxLength={300} autoComplete="address-line1" placeholder="526 Merceron Street" />
       </div>
       <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr)", gap: 18 }}>
         <div className="field">
-          <label htmlFor={`${kind}-city`}>City / town</label>
-          <input id={`${kind}-city`} name="city" className="input" required maxLength={120} autoComplete="address-level2" />
+          <label htmlFor={`${kind}-city`}>City / town{isSupport ? "" : " (optional)"}</label>
+          <input id={`${kind}-city`} name="city" className="input" required={isSupport} maxLength={120} autoComplete="address-level2" />
         </div>
         <div className="field">
           <label htmlFor={`${kind}-state`}>State</label>

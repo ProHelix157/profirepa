@@ -46,10 +46,15 @@ export async function POST(req: Request) {
   if (!message) return NextResponse.json({ error: "Please tell us what's going on." }, { status: 400 });
   // Enforced server-side as well as in the form. The browser `required` attribute is a
   // convenience — anything can POST this endpoint directly, and an address without a town is
-  // the reason this validation exists (ticket PFS-260916-2579).
-  if (!address) return NextResponse.json({ error: "Please give us the street address." }, { status: 400 });
-  if (!city) return NextResponse.json({ error: "Please give us the city or town." }, { status: 400 });
-  if (!US_STATES.has(state)) {
+  // the reason this validation exists (ticket PFS-260916-2579). Support tickets need a
+  // dispatchable address; a consultation request does not, so there it is validated only if given.
+  if (kind === "support") {
+    if (!address) return NextResponse.json({ error: "Please give us the street address." }, { status: 400 });
+    if (!city) return NextResponse.json({ error: "Please give us the city or town." }, { status: 400 });
+    if (!US_STATES.has(state)) {
+      return NextResponse.json({ error: "Please choose a state." }, { status: 400 });
+    }
+  } else if (state && !US_STATES.has(state)) {
     return NextResponse.json({ error: "Please choose a state." }, { status: 400 });
   }
   if (email && !email.includes("@")) {
